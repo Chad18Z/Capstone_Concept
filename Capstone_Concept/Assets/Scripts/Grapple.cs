@@ -10,18 +10,20 @@ using Valve.VR;
 public class Grapple : MonoBehaviour
 {
     #region fields
-
+    // Declare a states enum
+    GrappleStates state = new GrappleStates();
     #endregion
 
     #region methods
-
-
     /// <summary>
     /// Initialize
     /// </summary>
     private void Start()
     {
+        // Delegate HandleTriggerPress method to the PRESS event
         EventManager.AddTriggerPressListener(HandleTriggerPress);
+
+        // Delegate HandleTriggerRelease method to the RELEASE event
         EventManager.AddTriggerReleaseListener(HandleTriggerRelease);
     }
 
