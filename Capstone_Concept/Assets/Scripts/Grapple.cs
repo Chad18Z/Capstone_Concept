@@ -22,6 +22,7 @@ public class Grapple : MonoBehaviour
     private void Start()
     {
         EventManager.AddTriggerPressListener(HandleTriggerPress);
+        EventManager.AddTriggerReleaseListener(HandleTriggerRelease);
     }
 
     /// <summary>
@@ -30,7 +31,16 @@ public class Grapple : MonoBehaviour
     /// <param name="device"></param>
     void HandleTriggerPress(SteamVR_Input_Sources device)
     {
-        Debug.Log("Invoked!");
+        Debug.Log("Pressed!");
+    }
+
+    /// <summary>
+    /// Handls the trigger releases
+    /// </summary>
+    /// <param name="controller"></param>
+    void HandleTriggerRelease(SteamVR_Input_Sources controller)
+    {
+        Debug.Log("Released!");
     }
     #endregion
 

@@ -42,7 +42,7 @@ public static class EventManager
         // Add all listeners to the invoker
         foreach(UnityAction<SteamVR_Input_Sources> listener in triggerPressListeners)
         {
-            invoker.AddListener(listener);
+            invoker.AddTriggerPressListener(listener);
         }
     }
     /// <summary>
@@ -56,7 +56,7 @@ public static class EventManager
         // Add this listener to all triggerpress invokers
         foreach(PlayerInput playerInput in triggerPressInvokers)
         {
-            playerInput.AddListener(handler);
+            playerInput.AddTriggerPressListener(handler);
         }
     }
     #endregion
@@ -73,7 +73,7 @@ public static class EventManager
         // Add all listeners to the invoker
         foreach (UnityAction<SteamVR_Input_Sources> listener in triggerReleaseListeners)
         {
-            invoker.AddListener(listener);
+            invoker.AddTriggerReleaseListener(listener);
         }
     }
     /// <summary>
@@ -87,7 +87,7 @@ public static class EventManager
         // Add this listener to all triggerpress invokers
         foreach (PlayerInput playerInput in triggerReleaseInvokers)
         {
-            playerInput.AddListener(handler);
+            playerInput.AddTriggerReleaseListener(handler);
         }
     }
     #endregion

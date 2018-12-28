@@ -14,12 +14,14 @@ public class PlayerInput : MonoBehaviour
     // Create a new trigger press event
     TriggerPressEvent triggerPressEvent = new TriggerPressEvent();
 
-    // Reference to a SteamVR controller
-    public SteamVR_Input_Sources input = SteamVR_Input_Sources.LeftHand;
+    // Create a new trigger release event
+    TriggerReleaseEvent triggerReleaseEvent = new TriggerReleaseEvent();
+
+    // Reference to SteamVR controllers   left and right
+    public SteamVR_Input_Sources leftController = SteamVR_Input_Sources.LeftHand;
+    public SteamVR_Input_Sources rightController = SteamVR_Input_Sources.RightHand;
     #endregion
 
-    #region properties
-    #endregion
 
     #region methods
 
@@ -31,6 +33,9 @@ public class PlayerInput : MonoBehaviour
         // Add this script as an invoker for the trigger press event
         EventManager.AddTriggerPressInvoker(this);
 
+        // Add this script as an invoker for the trigger release event
+        EventManager.AddTriggerReleaseInvoker(this);
+
     }
 
     /// <summary>
@@ -38,19 +43,45 @@ public class PlayerInput : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(input))
+        // Check for left controller trigger press
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(leftController))
         {
-            triggerPressEvent.Invoke(input);
+            triggerPressEvent.Invoke(leftController);
 
+        }
+        // Check for left controller trigger release
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(leftController))
+        {
+            triggerReleaseEvent.Invoke(leftController);
+
+        }
+        // Check for right controller trigger press
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(rightController))
+        {
+            triggerPressEvent.Invoke(rightController);
+        }
+
+        //// Check for right controller trigger release
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(rightController))
+        {
+            triggerReleaseEvent.Invoke(rightController);
         }
     }
     /// <summary>
     /// Adds a listener to the trigger press event
     /// </summary>
     /// <param name="handler"></param>
-    public void AddListener(UnityAction<SteamVR_Input_Sources> handler)
+    public void AddTriggerPressListener(UnityAction<SteamVR_Input_Sources> handler)
     {
         triggerPressEvent.AddListener(handler);
+    }
+
+    /// Adds a listener to the trigger press event
+    /// </summary>
+    /// <param name="handler"></param>
+    public void AddTriggerReleaseListener(UnityAction<SteamVR_Input_Sources> handler)
+    {
+        triggerReleaseEvent.AddListener(handler);
     }
     #endregion
 
