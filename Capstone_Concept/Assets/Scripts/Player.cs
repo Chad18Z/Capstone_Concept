@@ -22,9 +22,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Instantiate two grapples - Make them children of the player object
-        leftGrapple = Instantiate(grapplePrefab, transform);
-        rightGrapple = Instantiate(grapplePrefab, transform);
+        // Instantiate two grapples - Make them children of each controller respectively
+        leftGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("leftController").transform);
+        rightGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("rightController").transform);
 
         // Assign left controller to left grapple
         leftGrapple.GetComponent<Grapple>().GetSource = SteamVR_Input_Sources.LeftHand;
