@@ -15,5 +15,4 @@ public class Grapple : MonoBehaviour
 
     #endregion
 
-
 }
