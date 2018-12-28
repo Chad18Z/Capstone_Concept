@@ -12,7 +12,10 @@ public class PlayerInput : MonoBehaviour
 {
     #region fields
     // Create a new trigger press event
-    protected TriggerPressEvent triggerPressEvent = new TriggerPressEvent();
+    TriggerPressEvent triggerPressEvent = new TriggerPressEvent();
+
+    // Reference to a SteamVR controller
+    public SteamVR_Input_Sources input = SteamVR_Input_Sources.LeftHand;
     #endregion
 
     #region properties
@@ -34,14 +37,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            triggerPressEvent.Invoke(new SteamVR_Input());
+            triggerPressEvent.Invoke(input);
+
         }
     }
     /// <summary>
     /// Adds a listener to the trigger press event
     /// </summary>
     /// <param name="handler"></param>
-    public void AddListener(UnityAction<SteamVR_Input> handler)
+    public void AddListener(UnityAction<SteamVR_Input_Sources> handler)
     {
         triggerPressEvent.AddListener(handler);
     }

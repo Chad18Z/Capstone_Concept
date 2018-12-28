@@ -16,7 +16,7 @@ public static class EventManager
 
     // Create a list that will hold all of the listeners for the triggerPress event
     // provide delegates that will handle triggerPress events
-    static List<UnityAction<SteamVR_Input>> triggerPressListeners = new List<UnityAction<SteamVR_Input>>();
+    static List<UnityAction<SteamVR_Input_Sources>> triggerPressListeners = new List<UnityAction<SteamVR_Input_Sources>>();
 
 
     // Create a list that will hold all invokers for the triggerRelease event
@@ -25,7 +25,7 @@ public static class EventManager
 
     // Create a list that will hold all of the listeners for the triggerRelease event
     // provide delegates that will handle triggerRelease events
-    static List<UnityAction<SteamVR_Input>> triggerReleaseListeners = new List<UnityAction<SteamVR_Input>>();
+    static List<UnityAction<SteamVR_Input_Sources>> triggerReleaseListeners = new List<UnityAction<SteamVR_Input_Sources>>();
     #endregion
 
 
@@ -40,7 +40,7 @@ public static class EventManager
         triggerPressInvokers.Add(invoker); // add the provided invoker to the list of invokers
 
         // Add all listeners to the invoker
-        foreach(UnityAction<SteamVR_Input> listener in triggerPressListeners)
+        foreach(UnityAction<SteamVR_Input_Sources> listener in triggerPressListeners)
         {
             invoker.AddListener(listener);
         }
@@ -49,7 +49,7 @@ public static class EventManager
     /// Adds the given handler as a listener
     /// </summary>
     /// <param name="handler"></param>
-    public static void AddTriggerPressListener(UnityAction<SteamVR_Input> handler)
+    public static void AddTriggerPressListener(UnityAction<SteamVR_Input_Sources> handler)
     {
         triggerPressListeners.Add(handler); // Add listener to the list of listeners
 
@@ -71,7 +71,7 @@ public static class EventManager
         triggerReleaseInvokers.Add(invoker); // add the provided invoker to the list of invokers
 
         // Add all listeners to the invoker
-        foreach (UnityAction<SteamVR_Input> listener in triggerReleaseListeners)
+        foreach (UnityAction<SteamVR_Input_Sources> listener in triggerReleaseListeners)
         {
             invoker.AddListener(listener);
         }
@@ -80,7 +80,7 @@ public static class EventManager
     /// Adds the given handler as a listener for the trigger release event
     /// </summary>
     /// <param name="handler"></param>
-    public static void AddTriggerReleaseListener(UnityAction<SteamVR_Input> handler)
+    public static void AddTriggerReleaseListener(UnityAction<SteamVR_Input_Sources> handler)
     {
         triggerReleaseListeners.Add(handler); // Add listener to the list of listeners
 

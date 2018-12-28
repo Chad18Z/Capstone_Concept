@@ -7,7 +7,7 @@ using Valve.VR;
 /// <summary>
 /// This event is initiated when the player presses the trigger on the VR controller
 /// </summary>
-public class TriggerPressEvent : UnityEvent<SteamVR_Input>
+public class TriggerPressEvent : UnityEvent<SteamVR_Input_Sources>
 {
 
 }
