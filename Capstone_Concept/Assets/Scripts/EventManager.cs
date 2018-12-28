@@ -28,8 +28,7 @@ public static class EventManager
     static List<UnityAction<SteamVR_Input_Sources>> triggerReleaseListeners = new List<UnityAction<SteamVR_Input_Sources>>();
     #endregion
 
-
-    #region trigger press event methods
+    #region TRIGGER PRESS event methods
 
     /// <summary>
     /// Add invoker for the triggerpress event to the invoker list
@@ -46,7 +45,7 @@ public static class EventManager
         }
     }
     /// <summary>
-    /// Adds the given handler as a listener
+    /// Adds the given handler as a listener for the trigger press event
     /// </summary>
     /// <param name="handler"></param>
     public static void AddTriggerPressListener(UnityAction<SteamVR_Input_Sources> handler)
@@ -61,7 +60,7 @@ public static class EventManager
     }
     #endregion
 
-    #region trigger release event methods
+    #region TRIGGER RELEASE event methods
     /// <summary>
     /// Add invoker for the trigger release event to the invoker list
     /// </summary>
@@ -91,5 +90,4 @@ public static class EventManager
         }
     }
     #endregion
-
 }

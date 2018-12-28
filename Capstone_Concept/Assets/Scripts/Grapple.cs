@@ -43,5 +43,4 @@ public class Grapple : MonoBehaviour
         Debug.Log("Released!");
     }
     #endregion
-
 }

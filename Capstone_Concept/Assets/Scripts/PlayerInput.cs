@@ -22,7 +22,6 @@ public class PlayerInput : MonoBehaviour
     public SteamVR_Input_Sources rightController = SteamVR_Input_Sources.RightHand;
     #endregion
 
-
     #region methods
 
     /// <summary>
@@ -84,5 +83,4 @@ public class PlayerInput : MonoBehaviour
         triggerReleaseEvent.AddListener(handler);
     }
     #endregion
-
 }
