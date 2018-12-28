@@ -46,10 +46,9 @@ public class PlayerInput : MonoBehaviour
         if (SteamVR_Input._default.inActions.InteractUI.GetStateDown(leftController))
         {
             triggerPressEvent.Invoke(leftController);
-
         }
         // Check for left controller trigger release
-        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(leftController))
+        else if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(leftController))
         {
             triggerReleaseEvent.Invoke(leftController);
 
@@ -61,7 +60,7 @@ public class PlayerInput : MonoBehaviour
         }
 
         //// Check for right controller trigger release
-        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(rightController))
+        else if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(rightController))
         {
             triggerReleaseEvent.Invoke(rightController);
         }

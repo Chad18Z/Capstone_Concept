@@ -12,6 +12,21 @@ public class Grapple : MonoBehaviour
     #region fields
     // Declare a states enum
     GrappleStates state = new GrappleStates();
+
+    // Declare and initialize a controller source (left hand or right hand)
+    // Left hand is default
+    SteamVR_Input_Sources source = SteamVR_Input_Sources.LeftHand;
+    #endregion
+
+    #region properties
+    /// <summary>
+    /// Allows the player script to assign either left or right handed device to the grapple
+    /// </summary>
+    public SteamVR_Input_Sources GetSource
+    {
+        get { return source; }
+        set { source = value; }
+    }
     #endregion
 
     #region methods
@@ -31,9 +46,12 @@ public class Grapple : MonoBehaviour
     /// Handles the trigger press
     /// </summary>
     /// <param name="device"></param>
-    void HandleTriggerPress(SteamVR_Input_Sources device)
+    void HandleTriggerPress(SteamVR_Input_Sources controller)
     {
-        Debug.Log("Pressed!");
+        if (controller == source) // test code
+        {
+            Debug.Log(controller + "Pressed!");
+        }     
     }
 
     /// <summary>
@@ -42,7 +60,10 @@ public class Grapple : MonoBehaviour
     /// <param name="controller"></param>
     void HandleTriggerRelease(SteamVR_Input_Sources controller)
     {
-        Debug.Log("Released!");
+        if (controller == source) // test code
+        {
+            Debug.Log(controller + "Released!");
+        }
     }
     #endregion
 }
