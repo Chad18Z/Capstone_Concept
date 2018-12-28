@@ -33,9 +33,12 @@ public class PlayerInput : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Check for input from controllers (TESTING PHASE)
+    /// </summary>
     private void Update()
     {
-        if (Input.anyKey)
+        if (SteamVR_Input._default.inActions.InteractUI.GetStateUp(input))
         {
             triggerPressEvent.Invoke(input);
 
