@@ -55,7 +55,7 @@ public class Grapple : MonoBehaviour
     }
 
     /// <summary>
-    /// Handls the trigger releases
+    /// Handles the trigger releases
     /// </summary>
     /// <param name="controller"></param>
     void HandleTriggerRelease(SteamVR_Input_Sources controller)
