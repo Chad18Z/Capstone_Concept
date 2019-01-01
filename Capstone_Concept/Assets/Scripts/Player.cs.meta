@@ -3,7 +3,9 @@ guid: b2a7ee4237ed0df459cd37b9937c5225
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - grapplePrefab: {fileID: 5946672525200362206, guid: b5c23990db2f13b4f890a93f39694df3,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
