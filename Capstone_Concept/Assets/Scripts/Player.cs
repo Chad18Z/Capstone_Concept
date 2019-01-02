@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     // References to each grapple 
     GameObject leftGrapple;
     GameObject rightGrapple;
+
+    // Refeerence to each grapple's script
+    Grapple left;
+    Grapple right;
     #endregion
 
     #region methods
@@ -26,11 +30,21 @@ public class Player : MonoBehaviour
         leftGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("leftController").transform);
         rightGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("rightController").transform);
 
-        // Assign left controller to left grapple
-        leftGrapple.GetComponent<Grapple>().GetSource = SteamVR_Input_Sources.LeftHand;
+        // Get references to grapple scripts
+        left = leftGrapple.GetComponent<Grapple>();
+        right = rightGrapple.GetComponent<Grapple>();
 
+        // Assign left controller to left grapple
+        left.GetSource = SteamVR_Input_Sources.LeftHand;
+
+        // Assign the right controller as the OTHER controller
+        left.OtherGrapple = right;
+      
         // Assign right controller to right grapple
-        rightGrapple.GetComponent<Grapple>().GetSource = SteamVR_Input_Sources.RightHand;
+        right.GetSource = SteamVR_Input_Sources.RightHand;
+
+        // Assign the left controller as the OTHER controller
+        right.OtherGrapple = left;
     }
 
     // Update is called once per frame

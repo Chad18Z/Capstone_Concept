@@ -13,6 +13,10 @@ public class Grapple : MonoBehaviour
     // Declare a states enum
     GrappleStates state = new GrappleStates();
 
+    // Reference to other grapple's script
+    // This will allow this grapple to know the state of the other grapple and vice-versa
+    Grapple otherGrapple;
+
     // Declare and initialize a controller source (left hand or right hand)
     // Left hand is default
     SteamVR_Input_Sources source = SteamVR_Input_Sources.LeftHand;
@@ -34,6 +38,17 @@ public class Grapple : MonoBehaviour
     public GrappleStates GetState
     {
         get { return state; }
+    }
+
+    /// <summary>
+    /// This property allows the player script to provide this grapple a reference to the other grapple
+    /// </summary>
+    public Grapple OtherGrapple
+    {
+        set
+        {
+            otherGrapple = value;
+        }
     }
     #endregion
 
