@@ -27,6 +27,14 @@ public class Grapple : MonoBehaviour
         get { return source; }
         set { source = value; }
     }
+
+    /// <summary>
+    /// Allows the other grapple (or any other object) to know this grapple's state
+    /// </summary>
+    public GrappleStates GetState
+    {
+        get { return state; }
+    }
     #endregion
 
     #region methods
