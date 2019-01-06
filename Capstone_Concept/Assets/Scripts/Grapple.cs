@@ -20,6 +20,9 @@ public class Grapple : MonoBehaviour
     // Reference to root controller. We need this for raycasting.
     Transform rootTransform;
 
+    // Reference to a line renderer that will be used to draw the grapple line
+    LineRenderer grappleLine;
+
     // Declare and initialize a controller source (left hand or right hand)
     // Left hand is default
     SteamVR_Input_Sources source = SteamVR_Input_Sources.LeftHand;
@@ -69,6 +72,9 @@ public class Grapple : MonoBehaviour
 
         // Get the reference to root controller: This grapples grandparent
         rootTransform = gameObject.transform.parent.parent;
+
+        // Get reference to the line renderer that's attached to this grapple gameobject
+        grappleLine = GetComponent<LineRenderer>();
     }
 
     /// <summary>
@@ -103,6 +109,8 @@ public class Grapple : MonoBehaviour
     /// <returns></returns>
     void GrappleTarget()
     {
+        grappleLine.SetPosition(0, rootTransform.position);
+        grappleLine.SetPosition(1, rootTransform.position + rootTransform.forward * 100);
         Debug.DrawLine(rootTransform.position, rootTransform.forward * 100, Color.white);
     }
     #endregion
