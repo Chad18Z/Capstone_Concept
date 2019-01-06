@@ -17,6 +17,9 @@ public class Grapple : MonoBehaviour
     // This will allow this grapple to know the state of the other grapple and vice-versa
     Grapple otherGrapple;
 
+    // Reference to root controller. We need this for raycasting.
+    Transform rootTransform;
+
     // Declare and initialize a controller source (left hand or right hand)
     // Left hand is default
     SteamVR_Input_Sources source = SteamVR_Input_Sources.LeftHand;
@@ -63,6 +66,9 @@ public class Grapple : MonoBehaviour
 
         // Delegate HandleTriggerRelease method to the RELEASE event
         EventManager.AddTriggerReleaseListener(HandleTriggerRelease);
+
+        // Get the reference to root controller: This grapples grandparent
+        rootTransform = gameObject.transform.parent.parent;
     }
 
     /// <summary>
@@ -73,6 +79,7 @@ public class Grapple : MonoBehaviour
     {
         if (controller == source) // test code
         {
+            GrappleTarget();
             Debug.Log(controller + "Pressed!");
         }     
     }
@@ -87,6 +94,16 @@ public class Grapple : MonoBehaviour
         {
             Debug.Log(controller + "Released!");
         }
+    }
+
+    /// <summary>
+    /// This method returns the object id of the grapple's current target (the object at which the grapple is pointed)
+    /// Returns an empty GameObject if no object is being targeted by the grapple
+    /// </summary>
+    /// <returns></returns>
+    void GrappleTarget()
+    {
+        Debug.DrawLine(rootTransform.position, rootTransform.forward * 100, Color.white);
     }
     #endregion
 }
