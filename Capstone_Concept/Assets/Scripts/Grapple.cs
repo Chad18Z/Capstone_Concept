@@ -111,7 +111,6 @@ public class Grapple : MonoBehaviour
     {
         grappleLine.SetPosition(0, rootTransform.position);
         grappleLine.SetPosition(1, rootTransform.position + rootTransform.forward * 100);
-        Debug.DrawLine(rootTransform.position, rootTransform.forward * 100, Color.white);
     }
     #endregion
 }
