@@ -9,9 +9,12 @@ using Valve.VR;
 public class Player : MonoBehaviour
 {
     #region fields
-    // Reference to grapple prefab
+    // Reference to grapple prefabs
     [SerializeField]
-    GameObject grapplePrefab;
+    GameObject rightGrapplePrefab;
+
+    [SerializeField]
+    GameObject leftGrapplePrefab;
 
     // References to each grapple 
     GameObject leftGrapple;
@@ -27,8 +30,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         // Instantiate two grapples - Make them children of each controller respectively
-        leftGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("leftController").transform);
-        rightGrapple = Instantiate(grapplePrefab, GameObject.FindGameObjectWithTag("rightController").transform);
+        leftGrapple = Instantiate(leftGrapplePrefab, GameObject.FindGameObjectWithTag("leftController").transform);
+        rightGrapple = Instantiate(rightGrapplePrefab, GameObject.FindGameObjectWithTag("rightController").transform);
 
         // Get references to grapple scripts
         left = leftGrapple.GetComponent<Grapple>();
