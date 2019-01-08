@@ -62,7 +62,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2f2c2826450ebb043ab502a0550d88bb, type: 2}
+  - {fileID: 2100000, guid: 95dd9c44f260cb2488c8d8c1b2b87228, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,7 +139,7 @@ LineRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
-  m_Loop: 0
+  m_Loop: 1
 --- !u!1001 &777340646
 PrefabInstance:
   m_ObjectHideFlags: 0
